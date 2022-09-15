@@ -1,8 +1,10 @@
 import React, { FormEvent, useState, FormEventHandler, ChangeEvent } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import styled from 'styled-components';
+import { VscSettingsGear } from 'react-icons/vsc';
 import UserImage from '../../components/atoms/UserImage';
 import Input from '../../components/atoms/Input';
+import ValidateInput from '../../components/organism/ValidateInput';
 
 type ImgType = {
   src: string;
@@ -16,42 +18,52 @@ interface userDataProps {
   phone: string;
 }
 
+// TODO 유효성 검사 함수만 별도로 모아서 관리하기
+function validatePhone(phone: string): boolean {
+  const regPhone = /^01([0|1|6|7|8|9])-?([0-9]{4})-?([0-9]{4})$/;
+  return regPhone.test(phone);
+}
+
 function EditProfile() {
   const userData = useOutletContext<userDataProps>();
   const [phone, setPhone] = useState<string>(userData.phone);
   const [previewImg, setPreviewImg] = useState<string>(userData.img.src);
+  const [profileImg, setProfileImg] = useState<FileList | null>(null);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // 메모리 누수 방지를 위해 revokeObjectURL 메소드로 url을 무효화 시켜줌
-    URL.revokeObjectURL(previewImg);
+    // URL.revokeObjectURL(previewImg);
+    console.log(profileImg);
   };
 
   const loadImg = (e: ChangeEvent<HTMLInputElement>) => {
     const imgFile = e.target.files;
+    setProfileImg(e.target.files);
     if (imgFile) {
       setPreviewImg(URL.createObjectURL(imgFile[0]));
     }
   };
-  // TODO 휴대전화 유효성 검사
   return (
     <Container>
-      <Title>Edit Profile</Title>
+      <Title>프로필 수정</Title>
       <Form onSubmit={handleSubmit}>
         <UserImage src={previewImg} alt={userData.img.alt} />
-        <label htmlFor="imgFile" style={{ cursor: 'pointer' }}>
-          이미지 추가하기
+        <Label htmlFor="imgFile" style={{ cursor: 'pointer' }}>
+          <CustomGear />
           <input style={{ display: 'none' }} type="file" id="imgFile" accept="image/*" onChange={loadImg} />
-        </label>
+        </Label>
         <Input id="userName" placeholder="이름" label="이름" type="text" value={userData.name} />
         <Input id="userEmail" placeholder="이메일" label="이메일" type="email" value={userData.email} />
-        <Input
+        <ValidateInput
           id="userPhone"
           placeholder="휴대전화"
           label="휴대전화"
           type="tel"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
+          validateValue="(-) 없이"
+          validationCheck={validatePhone(phone)}
         />
         <ConfirmBtn>수정하기</ConfirmBtn>
       </Form>
@@ -86,7 +98,23 @@ const Form = styled.form<{ onSubmit: FormEventHandler<HTMLFormElement> }>`
   }
 
   > div {
-    margin: 20px;
+    margin: 10px;
+  }
+`;
+
+const Label = styled.label`
+  position: relative;
+`;
+
+const CustomGear = styled(VscSettingsGear)`
+  position: absolute;
+  top: -50px;
+  right: -70px;
+  font-size: 32px;
+  transition: all ease 0.5s;
+
+  :hover {
+    transform: rotate(90deg);
   }
 `;
 

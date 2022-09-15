@@ -16,7 +16,7 @@ function DeleteAccount() {
 
   return (
     <Container>
-      <Title>Delete Account</Title>
+      <Title>회원 탈퇴</Title>
       <WarningBox>
         {!isOk ? (
           <>

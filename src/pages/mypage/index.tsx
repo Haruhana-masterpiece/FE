@@ -18,15 +18,15 @@ function Mypage() {
   const links = [
     {
       link: 'editProfile',
-      text: 'Edit Profile',
+      text: '프로필 수정',
     },
     {
       link: 'changePssword',
-      text: 'Password',
+      text: '비밀번호 변경',
     },
     {
       link: 'deleteAccount',
-      text: 'Delete Account',
+      text: '회원 탈퇴',
     },
   ];
 

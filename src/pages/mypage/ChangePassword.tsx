@@ -2,6 +2,7 @@ import React, { FormEvent, FormEventHandler, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import styled from 'styled-components';
 import Input from '../../components/atoms/Input';
+import ValidateInput from '../../components/organism/ValidateInput';
 
 type ImgType = {
   src: string;
@@ -23,11 +24,11 @@ function ChangePassword() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // TODO 수정 api 요청 시 기존 비밀번호 맞는지 체크하고 틀리면 에러반환, 맞으면 그대로 진행
   };
-  // TODO 비밀번호 유효성 검사
   return (
     <Container>
-      <Title>Password</Title>
+      <Title>비밀번호 변경</Title>
       <Form onSubmit={handleSubmit}>
         <Input id="userEmail" placeholder="이메일" label="이메일" type="email" value={userData.email} />
         <Input
@@ -38,21 +39,25 @@ function ChangePassword() {
           value={userPw}
           onChange={(e) => setUserPw(e.target.value)}
         />
-        <Input
+        <ValidateInput
           id="changePw"
           placeholder="변경할 비밀번호"
           label="변경할 비밀번호"
           type="password"
           value={changePw}
           onChange={(e) => setChangePw(e.target.value)}
+          validateValue="8자 이상"
+          validationCheck={changePw.length >= 8}
         />
-        <Input
+        <ValidateInput
           id="confirmPw"
           placeholder="비밀번호 확인"
           label="비밀번호 확인"
           type="password"
           value={confirmPw}
           onChange={(e) => setConfirmPw(e.target.value)}
+          validateValue="비밀번호와 동일"
+          validationCheck={confirmPw.length >= 8 && changePw === confirmPw}
         />
         <ConfirmBtn>수정하기</ConfirmBtn>
       </Form>
@@ -81,7 +86,7 @@ const Form = styled.form<{ onSubmit: FormEventHandler<HTMLFormElement> }>`
   align-items: center;
 
   > div {
-    margin: 20px;
+    margin: 10px;
   }
 `;
 
