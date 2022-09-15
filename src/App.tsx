@@ -1,16 +1,36 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/Main';
+import Mypage from './pages/Mypage';
+import EditProfile from './pages/Mypage/EditProfile';
+import ChangePassword from './pages/Mypage/ChangePassword';
+import DeleteAccount from './pages/Mypage/DeleteAccount';
+import MyCollection from './pages/MyCollection';
+import Layout from './Routes/Layout';
 import Sidebar from './components/organism/Sidebar';
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <div className="App">
-        <Sidebar />
-        <Main />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          {/* 메인 페이지 */}
+          <Route element={<Layout />}>
+            <Route path="/" element={<Main />} />
+            <Route path="/collection" element={<MyCollection />} />
+          </Route>
+
+          {/* 마이 페이지 */}
+          <Route path="/mypage" element={<Mypage />}>
+            <Route index element={<EditProfile />} />
+            <Route path="editProfile" element={<EditProfile />} />
+            <Route path="changePssword" element={<ChangePassword />} />
+            <Route path="deleteAccount" element={<DeleteAccount />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
