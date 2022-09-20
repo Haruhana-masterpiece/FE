@@ -17,7 +17,8 @@ const ArtContainerStyle = styled.div`
   margin: 1rem;
   width: 250px;
   height: 250px;
-  background-image: url('https://mdl.artvee.com/ft/300867rg.jpg');
   border-radius: 5px;
   border: 1px solid #d9d9d9;
+  background-image: url('https://img.pokemondb.net/artwork/large/bulbasaur.jpg');
+  background-size: cover;
 `;

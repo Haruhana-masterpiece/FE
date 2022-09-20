@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import Archive from '../components/organism/Archive';
-import Carousel from '../components/organism/Carousel';
-import Navbar from '../components/organism/Navbar';
+import CarouselContainer from '../components/organism/CarouselContainer';
 
 function Main() {
   return (
     <MainStyle>
-      <Navbar />
-      <Carousel />
+      <CarouselContainer />
       <Archive />
     </MainStyle>
   );
@@ -17,7 +15,8 @@ function Main() {
 export default Main;
 
 const MainStyle = styled.div`
-  width: 100vw;
+  overflow: hidden;
+  width: 1280px;
   height: auto;
-  background-color: #fafafa;
+  margin: 0 auto;
 `;
