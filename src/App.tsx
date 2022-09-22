@@ -7,6 +7,7 @@ import EditProfile from './pages/mypage/EditProfile';
 import ChangePassword from './pages/mypage/ChangePassword';
 import DeleteAccount from './pages/mypage/DeleteAccount';
 import Layout from './routes/Layout';
+import MyCollection from './pages/myCollection';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           {/* 메인 페이지 */}
           <Route element={<Layout />}>
             <Route path="/" element={<Main />} />
-            {/* <Route path="/collection" element={<MyCollection />} /> */}
+            <Route path="/collection" element={<MyCollection />} />
           </Route>
           {/* 마이 페이지 */}
           <Route path="/mypage" element={<Mypage />}>
