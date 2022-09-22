@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import MenuBox from '../atoms/MenuBox';
 import UserImage from '../atoms/UserImage';
-import Logo from '../atoms/Logo';
+// import Logo from '../atoms/Logo';
 
 type ImgType = {
   src: string;
@@ -36,7 +36,7 @@ function MenuBar({ img, links }: IProps) {
 
   return (
     <MenuBox>
-      <Logo />
+      {/* <Logo /> */}
       <UserImage src={img.src} alt={img.alt} name={img.name} />
       <LinkContainer>
         {links.map(({ link, text }, idx) => {

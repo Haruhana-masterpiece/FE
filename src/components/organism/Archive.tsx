@@ -8,6 +8,11 @@ function Archive() {
       <ArtContainer />
       <ArtContainer />
       <ArtContainer />
+      <ArtContainer />
+      <ArtContainer />
+      <ArtContainer />
+      <ArtContainer />
+      <ArtContainer />
     </ArchiveStyle>
   );
 }
@@ -15,7 +20,9 @@ function Archive() {
 export default Archive;
 
 const ArchiveStyle = styled.div`
-  display: flex;
-  width: 100vw;
+  padding: 2rem;
+  display: grid;
+  grid-template-areas: 'a a a a';
+  width: 100%;
   height: auto;
 `;
