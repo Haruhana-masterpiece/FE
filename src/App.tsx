@@ -7,6 +7,11 @@ import EditProfile from './pages/mypage/EditProfile';
 import ChangePassword from './pages/mypage/ChangePassword';
 import DeleteAccount from './pages/mypage/DeleteAccount';
 import Layout from './routes/Layout';
+import Admin from './pages/admin';
+import AdminHome from './pages/admin/AdminHome';
+import UserManagement from './pages/admin/UserManagement';
+import WorkAdd from './pages/admin/WorkAdd';
+import WorkEdit from './pages/admin/WorkEdit';
 
 function App() {
   return (
@@ -25,6 +30,15 @@ function App() {
             <Route path="editProfile" element={<EditProfile />} />
             <Route path="changePssword" element={<ChangePassword />} />
             <Route path="deleteAccount" element={<DeleteAccount />} />
+          </Route>
+          {/* 관리자 페이지 */}
+          {/* 토큰 구현 시 PrivateRoute 구현 */}
+          <Route path="/admin" element={<Admin />}>
+            <Route index element={<AdminHome />} />
+            <Route path="adminHome" element={<AdminHome />} />
+            <Route path="workAdd" element={<WorkAdd />} />
+            <Route path="workEdit" element={<WorkEdit />} />
+            <Route path="userManagement" element={<UserManagement />} />
           </Route>
         </Routes>
       </BrowserRouter>
