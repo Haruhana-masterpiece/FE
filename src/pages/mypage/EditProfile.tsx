@@ -44,6 +44,7 @@ function EditProfile() {
       setPreviewImg(URL.createObjectURL(imgFile[0]));
     }
   };
+
   return (
     <Container>
       <Title>프로필 수정</Title>

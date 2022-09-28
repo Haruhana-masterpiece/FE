@@ -1,7 +1,7 @@
 import React from 'react';
 
-function WorkEdit() {
+function ArtEdit() {
   return <h1>작품 수정 페이지</h1>;
 }
 
-export default WorkEdit;
+export default ArtEdit;

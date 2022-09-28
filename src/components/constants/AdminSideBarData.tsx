@@ -4,11 +4,11 @@ const AdminSideBarData = [
     text: '관리자 홈',
   },
   {
-    link: 'WorkAdd',
+    link: 'ArtAdd',
     text: '작품 추가',
   },
   {
-    link: 'WorkEdit',
+    link: 'ArtEdit',
     text: '작품 수정 / 삭제',
   },
   {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import MenuBar from '../../components/organism/MenuBar';
-import AdminSideBarData from '../../components/datas/AdminSideBarData';
+import AdminSideBarData from '../../components/constants/AdminSideBarData';
 
 function Admin() {
   // TODO 유저정보 api 받아서 구현

@@ -10,8 +10,8 @@ import Layout from './routes/Layout';
 import Admin from './pages/admin';
 import AdminHome from './pages/admin/AdminHome';
 import UserManagement from './pages/admin/UserManagement';
-import WorkAdd from './pages/admin/WorkAdd';
-import WorkEdit from './pages/admin/WorkEdit';
+import ArtAdd from './pages/admin/ArtAdd';
+import ArtEdit from './pages/admin/ArtEdit';
 
 function App() {
   return (
@@ -36,8 +36,8 @@ function App() {
           <Route path="/admin" element={<Admin />}>
             <Route index element={<AdminHome />} />
             <Route path="adminHome" element={<AdminHome />} />
-            <Route path="workAdd" element={<WorkAdd />} />
-            <Route path="workEdit" element={<WorkEdit />} />
+            <Route path="artAdd" element={<ArtAdd />} />
+            <Route path="artEdit" element={<ArtEdit />} />
             <Route path="userManagement" element={<UserManagement />} />
           </Route>
         </Routes>
