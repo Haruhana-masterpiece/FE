@@ -80,12 +80,7 @@ function DaysList({ year, month, data }: Iprops) {
               {days[i].map((day: number[], index) => {
                 if (day[0] !== 0) {
                   return (
-                    <DaysIcon
-                      like={day[1]}
-                      date={dayjs(`${year}-${month}-${day[0]}`)}
-                      key={`days-${index + 1}`}
-                      index={index}
-                    />
+                    <DaysIcon like={day[1]} date={dayjs(`${year}-${month}-${day[0]}`)} key={`days-${index + 1}`} />
                   );
                 }
                 return <DaysIcon like="no" key={`days-${index + 1}`} />;

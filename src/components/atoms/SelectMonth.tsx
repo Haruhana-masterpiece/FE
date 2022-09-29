@@ -43,6 +43,7 @@ function Month({ now, setMonth }: MonthProps) {
     }
     setCurrMonth((curr) => curr - 1);
     setMonth((curr) => curr - 1);
+    setOpen(false);
   };
 
   const handleRightArrow = () => {
@@ -51,6 +52,7 @@ function Month({ now, setMonth }: MonthProps) {
     }
     setCurrMonth((curr) => curr + 1);
     setMonth((curr) => curr + 1);
+    setOpen(false);
   };
 
   return (

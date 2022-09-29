@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 interface IProps {
   like: number | string;
-  index?: number | undefined;
   date?: Dayjs;
 }
 
@@ -17,7 +16,7 @@ function setColor(count: number | string): string {
   return '#000000';
 }
 
-function DaysIcon({ like, date, index }: IProps) {
+function DaysIcon({ like, date }: IProps) {
   const [hoverData, setHoverData] = useState<[string, number | string]>(['', '']);
   const [hover, setHover] = useState(false);
 
@@ -33,7 +32,7 @@ function DaysIcon({ like, date, index }: IProps) {
       }}
     >
       {hover && hoverData[1] !== 'no' && (
-        <HoverDataContainer>{`${hoverData[0]}에 담은 작품 수는 ${like}점 입니다.`}</HoverDataContainer>
+        <HoverDataContainer>{`${hoverData[0]}에 담은 작품 수: ${like}점`}</HoverDataContainer>
       )}
     </DayContainer>
   );
@@ -41,7 +40,6 @@ function DaysIcon({ like, date, index }: IProps) {
 
 const defaultProps = {
   date: '',
-  index: undefined,
 };
 
 DaysIcon.defaultProps = defaultProps;
@@ -58,9 +56,9 @@ const DayContainer = styled.div<{ dayColor: string }>`
 
 const HoverDataContainer = styled.div`
   position: absolute;
-  top: 30px;
-  left: -30px;
-  width: 300px;
+  top: 35px;
+  left: -5px;
+  width: 240px;
   text-align: center;
   background-color: lightgray;
   border: 1px solid gray;

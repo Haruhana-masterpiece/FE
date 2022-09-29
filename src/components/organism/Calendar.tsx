@@ -68,7 +68,7 @@ export default Calendar;
 const Wrapper = styled.div`
   padding: 10px;
   width: 250px;
-  margin: 200px auto;
+  margin: 0 auto;
 
   > div:first-child {
     margin-bottom: 5px;

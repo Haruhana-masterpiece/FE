@@ -34,17 +34,19 @@ function Year({ now, setYear }: YearProps) {
     setCurrYear(Number(e.currentTarget.innerText));
     setYearList(createYearList(currYear));
     setYear(Number(e.currentTarget.innerText));
-    setOpen((curr) => !curr);
+    setOpen(false);
   };
 
   const handleLeftArrow = () => {
     setCurrYear((curr) => curr - 1);
     setYear((curr) => curr - 1);
+    setOpen(false);
   };
 
   const handleRightArrow = () => {
     setCurrYear((curr) => curr + 1);
     setYear((curr) => curr + 1);
+    setOpen(false);
   };
 
   return (
