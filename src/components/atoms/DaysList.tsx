@@ -81,13 +81,14 @@ function DaysList({ year, month, data }: Iprops) {
                 if (day[0] !== 0) {
                   return (
                     <DaysIcon
-                      collectionCount={day[1]}
-                      date={dayjs(`${year}-${month}-${day}`)}
+                      like={day[1]}
+                      date={dayjs(`${year}-${month}-${day[0]}`)}
                       key={`days-${index + 1}`}
+                      index={index}
                     />
                   );
                 }
-                return <DaysIcon collectionCount="no" key={`days-${index + 1}`} />;
+                return <DaysIcon like="no" key={`days-${index + 1}`} />;
               })}
             </Week>
           );
@@ -100,4 +101,6 @@ export default DaysList;
 
 const Week = styled.div`
   display: flex;
+  justify-content: center;
+  position: relative;
 `;

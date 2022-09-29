@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
+import styled from 'styled-components';
 import SelectYear from '../atoms/SelectYear';
 import SelectMonth from '../atoms/SelectMonth';
 import DaysList from '../atoms/DaysList';
@@ -16,7 +17,7 @@ function Calendar() {
 
   useEffect(() => {
     // TODO api 요청하여 날짜별 컬렉션한 개수를 전달해줘야 함
-    if (month === 9) {
+    if (year === 2022 && month === 9) {
       const data: likeDataType[] = [
         {
           date: '2022-09-01',
@@ -54,12 +55,26 @@ function Calendar() {
   }, [year, month]);
 
   return (
-    <>
+    <Wrapper>
       <SelectYear now={year} setYear={setYear} />
       <SelectMonth now={month} setMonth={setMonth} />
       <DaysList year={year} month={month} data={likeData} />
-    </>
+    </Wrapper>
   );
 }
 
 export default Calendar;
+
+const Wrapper = styled.div`
+  padding: 10px;
+  width: 250px;
+  margin: 200px auto;
+
+  > div:first-child {
+    margin-bottom: 5px;
+  }
+
+  > div:last-child {
+    margin-top: 30px;
+  }
+`;

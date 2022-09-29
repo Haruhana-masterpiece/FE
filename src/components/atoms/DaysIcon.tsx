@@ -1,9 +1,10 @@
-import { Dayjs } from 'dayjs';
-import React from 'react';
+import dayjs, { Dayjs } from 'dayjs';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 interface IProps {
-  collectionCount: number | string;
+  like: number | string;
+  index?: number | undefined;
   date?: Dayjs;
 }
 
@@ -16,13 +17,31 @@ function setColor(count: number | string): string {
   return '#000000';
 }
 
-function DaysIcon({ collectionCount, date }: IProps) {
-  // TODO 마우스 호버시 date값으로 해당 날짜 보여주기
-  return <DayContainer dayColor={setColor(collectionCount)} />;
+function DaysIcon({ like, date, index }: IProps) {
+  const [hoverData, setHoverData] = useState<[string, number | string]>(['', '']);
+  const [hover, setHover] = useState(false);
+
+  return (
+    <DayContainer
+      dayColor={setColor(like)}
+      onMouseEnter={() => {
+        setHoverData([dayjs(date).format('MM월 D일'), like]);
+        setHover(true);
+      }}
+      onMouseLeave={() => {
+        setHover(false);
+      }}
+    >
+      {hover && hoverData[1] !== 'no' && (
+        <HoverDataContainer>{`${hoverData[0]}에 담은 작품 수는 ${like}점 입니다.`}</HoverDataContainer>
+      )}
+    </DayContainer>
+  );
 }
 
 const defaultProps = {
   date: '',
+  index: undefined,
 };
 
 DaysIcon.defaultProps = defaultProps;
@@ -33,7 +52,19 @@ const DayContainer = styled.div<{ dayColor: string }>`
   width: 25px;
   height: 25px;
   margin: 3px;
-  /* TODO 백그라운드 색상은 컬렉션에 담은 개수만큼 달라지도록 */
   background-color: ${({ dayColor }) => dayColor};
-  border: 1px solid black;
+  border: 1px solid lightgray;
+`;
+
+const HoverDataContainer = styled.div`
+  position: absolute;
+  top: 30px;
+  left: -30px;
+  width: 300px;
+  text-align: center;
+  background-color: lightgray;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 4px;
+  z-index: 1;
 `;
