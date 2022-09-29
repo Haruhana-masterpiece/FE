@@ -1,6 +1,6 @@
 import React, { MouseEvent, useState, Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
-import { RightArrow, LeftArrow } from './ArrowBtn';
+import { RightArrow, LeftArrow } from '../atoms/ArrowBtn';
 
 function createYearList(year: number) {
   const list = [];

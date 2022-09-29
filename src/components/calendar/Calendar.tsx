@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import styled from 'styled-components';
-import SelectYear from '../atoms/SelectYear';
-import SelectMonth from '../atoms/SelectMonth';
-import DaysList from '../atoms/DaysList';
+import SelectYear from './SelectYear';
+import SelectMonth from './SelectMonth';
+import DaysList from './DaysList';
 
 type likeDataType = {
   date: string;

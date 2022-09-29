@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Calendar from '../../components/organism/Calendar';
+import Calendar from '../../components/calendar/Calendar';
 
 function MyCollection() {
   return (

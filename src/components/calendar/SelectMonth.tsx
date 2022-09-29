@@ -1,6 +1,6 @@
 import React, { MouseEvent, useState, Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
-import { RightArrow, LeftArrow } from './ArrowBtn';
+import { RightArrow, LeftArrow } from '../atoms/ArrowBtn';
 
 interface MonthProps {
   now: number;
@@ -112,7 +112,7 @@ const MonthsContainer = styled.div<{ open: boolean }>`
   border-radius: 5px;
   border: 1px solid lightgray;
   position: absolute;
-  top: 30px;
+  top: 40px;
   left: 6.5%;
   padding: 20px;
   transition: all 0.3s ease;
