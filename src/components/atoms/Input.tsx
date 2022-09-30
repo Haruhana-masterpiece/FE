@@ -36,7 +36,6 @@ export default Input;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 5px 0 0;
 `;
 
 const Label = styled.label`
@@ -51,6 +50,12 @@ const InputContainer = styled.input<{ sz: string | undefined }>`
       width: 400px;
       height: 45px;
     `}
+  ${({ sz }) =>
+    sz === 'medium' &&
+    css`
+      width: 300px;
+      height: 45px;
+    `}
 
   border: lightgray 1px solid;
   border-radius: 5px;
@@ -59,5 +64,9 @@ const InputContainer = styled.input<{ sz: string | undefined }>`
 
   &::placeholder {
     font-size: 20px;
+  }
+
+  :focus {
+    outline: none;
   }
 `;
