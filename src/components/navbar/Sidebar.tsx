@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import BellBtn from '../atoms/BellBtn';
-import MypageBtn from '../atoms/MypageBtn';
-import SettingBtn from '../atoms/SettingBtn';
+import BellBtn from './BellBtn';
+import MypageBtn from './MypageBtn';
+import SettingBtn from './SettingBtn';
 import UserImage from '../atoms/UserImage';
 
 function Sidebar({ close }: { close: boolean }) {
@@ -11,7 +12,9 @@ function Sidebar({ close }: { close: boolean }) {
       <SidebarStyle toggle={close}>
         <SidebarBtnStyle>
           <BellBtn />
-          <MypageBtn margin="0.5rem" />
+          <Link to="/mypage">
+            <MypageBtn margin="0.5rem" />
+          </Link>
         </SidebarBtnStyle>
         <ProfileContainer>
           <UserImage
@@ -22,9 +25,15 @@ function Sidebar({ close }: { close: boolean }) {
         </ProfileContainer>
         <MenuContainer>
           <ul>
-            <li>Today&#39;s Art</li>
-            <li>My Collection</li>
-            <li>About</li>
+            <li>
+              <Link to="/details">Today&#39;s Art</Link>
+            </li>
+            <li>
+              <Link to="/collection">My Collection</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
           </ul>
         </MenuContainer>
         <SettingBtn />

@@ -7,6 +7,7 @@ import EditProfile from './pages/mypage/EditProfile';
 import ChangePassword from './pages/mypage/ChangePassword';
 import DeleteAccount from './pages/mypage/DeleteAccount';
 import Layout from './routes/Layout';
+import Details from './pages/details/Details';
 import MyCollection from './pages/myCollection';
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
           {/* 메인 페이지 */}
           <Route element={<Layout />}>
             <Route path="/" element={<Main />} />
+            <Route path="/details/:index" element={<Details />} />
+            {/* <Route path="/collection" element={<MyCollection />} /> */}
             <Route path="/collection" element={<MyCollection />} />
           </Route>
           {/* 마이 페이지 */}
@@ -43,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
   font-family: 'Noto Sans KR', sans-serif;
 }
 body {
-  background-color: #fafafa;
+  background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
 }
 *, :after, :before {

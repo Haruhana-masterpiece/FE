@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import Navbar from '../components/organism/Navbar';
+import Navbar from '../components/navbar/Navbar';
 
 function Layout() {
   return (

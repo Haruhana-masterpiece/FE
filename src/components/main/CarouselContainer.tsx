@@ -22,5 +22,17 @@ const CarouselContainerStyle = styled.div`
 `;
 
 const MainInputStyle = styled.div`
-  position: absolute;
+  > div {
+    align-items: center;
+  }
+
+  #mainInput {
+    position: absolute;
+    top: 40%;
+    opacity: 0.6;
+    :focus {
+      outline: none;
+      opacity: 1;
+    }
+  }
 `;
