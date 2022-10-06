@@ -29,7 +29,7 @@ function Sidebar({ close }: { close: boolean }) {
               <Link to="/details">Today&#39;s Art</Link>
             </li>
             <li>
-              <Link to="/myCollection">My Collection</Link>
+              <Link to="/collection">My Collection</Link>
             </li>
             <li>
               <Link to="/about">About</Link>
