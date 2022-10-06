@@ -8,6 +8,7 @@ import ChangePassword from './pages/mypage/ChangePassword';
 import DeleteAccount from './pages/mypage/DeleteAccount';
 import Layout from './routes/Layout';
 import Details from './pages/details/Details';
+import MyCollection from './pages/myCollection';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Main />} />
             <Route path="/details/:index" element={<Details />} />
             {/* <Route path="/collection" element={<MyCollection />} /> */}
+            <Route path="/collection" element={<MyCollection />} />
           </Route>
           {/* 마이 페이지 */}
           <Route path="/mypage" element={<Mypage />}>
