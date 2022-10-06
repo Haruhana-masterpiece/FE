@@ -83,14 +83,13 @@ const Title = styled.h2`
   border-bottom: 2px solid lightgray;
   font-size: 32px;
   font-weight: 400;
-  margin-bottom: 86px;
 `;
 
 const Form = styled.form<{ onSubmit: FormEventHandler<HTMLFormElement> }>`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  margin: 70px 0;
   > img {
     width: 200px;
     height: 200px;

@@ -57,7 +57,6 @@ const Title = styled.h2`
   border-bottom: 2px solid lightgray;
   font-size: 32px;
   font-weight: 400;
-  margin-bottom: 86px;
 `;
 
 const WarningBox = styled.div`
