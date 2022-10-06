@@ -2,9 +2,13 @@ import React from 'react';
 import { FiSettings } from 'react-icons/fi';
 import styled from 'styled-components';
 
-function SettingBtn() {
+interface IProps {
+  onClick: () => void;
+}
+
+function SettingBtn({ onClick }: IProps) {
   return (
-    <SettingBtnStyle>
+    <SettingBtnStyle onClick={onClick}>
       <CustomBtn />
     </SettingBtnStyle>
   );
