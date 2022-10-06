@@ -11,10 +11,12 @@ interface IProps {
   setValue: Dispatch<SetStateAction<SearchValue | null>>;
   radio1: string;
   radio2: string;
+  radio1Id: string;
+  radio2Id: string;
 }
 
-function SearchBar({ setValue, radio1, radio2 }: IProps) {
-  const [radio, setRadio] = useState('');
+function SearchBar({ setValue, radio1, radio2, radio1Id, radio2Id }: IProps) {
+  const [radio, setRadio] = useState(radio1Id);
   const [search, setSearch] = useState('');
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -26,19 +28,27 @@ function SearchBar({ setValue, radio1, radio2 }: IProps) {
 
   return (
     <Form onSubmit={handleSearch}>
-      <Label htmlFor="author">
+      <Label htmlFor={radio1Id}>
         <input
-          checked
-          id="author"
+          checked={radio === radio1Id}
+          id={radio1Id}
           type="radio"
           name="search"
-          value="author"
+          value={radio1Id}
           onChange={(e) => setRadio(e.target.value)}
         />{' '}
         {radio1}
       </Label>
-      <Label htmlFor="art">
-        <input id="art" type="radio" name="search" value="art" onChange={(e) => setRadio(e.target.value)} /> {radio2}
+      <Label htmlFor={radio2Id}>
+        <input
+          checked={radio === radio2Id}
+          id={radio2Id}
+          type="radio"
+          name="search"
+          value={radio2Id}
+          onChange={(e) => setRadio(e.target.value)}
+        />{' '}
+        {radio2}
       </Label>
       <Input
         type="text"
