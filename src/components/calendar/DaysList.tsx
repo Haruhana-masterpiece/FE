@@ -43,7 +43,7 @@ function createDaysList(startDate: number, endDate: number, dayOfWeek: number, l
 
 type likeDataType = {
   date: string;
-  like: number;
+  like: string[];
 };
 
 interface Iprops {
@@ -57,7 +57,6 @@ function DaysList({ year, month, data }: Iprops) {
   const startDate = selectedDate.get('date');
   const dayOfWeek = selectedDate.get('day');
   const endDate = selectedDate.endOf('month').get('date');
-
   // 컬렉션에 담은 수를 나타내는 리스트
   const likeList = [0];
   for (let i = 1; i <= endDate; i += 1) {
@@ -66,7 +65,7 @@ function DaysList({ year, month, data }: Iprops) {
   }
   // 각 날짜의 like 수를 likeList에 반영
   data.forEach(({ date, like }) => {
-    likeList[dayjs(date).get('date')] = like;
+    likeList[dayjs(date).get('date')] = like.length;
   });
 
   const days = createDaysList(startDate, endDate, dayOfWeek, likeList);
