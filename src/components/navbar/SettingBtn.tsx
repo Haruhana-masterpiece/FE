@@ -5,7 +5,7 @@ import styled from 'styled-components';
 function SettingBtn() {
   return (
     <SettingBtnStyle>
-      <FiSettings />
+      <CustomBtn />
     </SettingBtnStyle>
   );
 }
@@ -17,8 +17,11 @@ const SettingBtnStyle = styled.button`
   color: white;
   font-size: 2rem;
   margin-right: 1rem;
+`;
+
+const CustomBtn = styled(FiSettings)`
   transition: 0.5s ease;
   :hover {
-    transform: rotate(30deg);
+    transform: rotate(90deg);
   }
 `;

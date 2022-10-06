@@ -54,7 +54,6 @@ const SidebarContainer = styled.div<{ toggle: boolean }>`
 `;
 
 const SidebarStyle = styled.div<{ toggle: boolean }>`
-  z-index: 2;
   width: 25rem;
   padding: 0.5rem;
   position: absolute;

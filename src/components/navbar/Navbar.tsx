@@ -19,4 +19,5 @@ const NavbarStyle = styled.div`
   position: fixed;
   top: 0;
   width: 1280px;
+  z-index: 999;
 `;
