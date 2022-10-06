@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import Calendar from '../../components/calendar/Calendar';
 import SearchBar from '../../components/organism/SearchBar';
@@ -17,7 +17,7 @@ function MyCollection() {
   const [searchValue, setSearchValue] = useState<SearchValue | null>(null);
   const [masterpiece, setMasterpiece] = useState<likeDataType[]>([]);
   // TODO searchValue이용하여 받아온 컬렉션 데이터 중에서 검색결과와 일치하는 자료 뿌려주기, 프론트단에서 처리하는게 나을듯
-  // mock data like 값에 명화 이름, 작가 이름, 이미지주소 형태로 넣어줘야할 듯
+  // TODO mock data like 값에 명화 이름, 작가 이름, 이미지주소 형태로 넣어줘야할 듯
 
   return (
     <Wrapper>
@@ -27,28 +27,31 @@ function MyCollection() {
           <SearchBar setValue={setSearchValue} radio1="작가명" radio1Id="author" radio2="작품명" radio2Id="art" />
         </Head>
         {/*  TODO 아카이브 코드 완성되면 공유받아서 작업 마무리하기 */}
+        {/* TODO 리스트로 볼지 그림으로 볼지 선택할 수 있는 버튼 만들기 */}
         {/* 임시 코드 */}
-        <div style={{ display: 'flex', flexDirection: 'column', padding: '20px 0' }}>
-          {masterpiece.map((p) => {
+        <TempContainer>
+          {masterpiece.map((p, index) => {
             return (
-              <>
+              <Fragment key={`masterpiece-${index + 1}`}>
                 {/* TODO 날짜 호버 시 해당 날짜에 담은 컬렉션 전체 삭제 버튼 생성 */}
                 <h2>{p.date}</h2>
                 <div style={{ display: 'flex', width: '650px', flexWrap: 'wrap' }}>
-                  {p.like.map((img) => {
+                  {/* eslint-disable-next-line */}
+                  {p.like.map((img, index) => {
                     return (
                       <img
                         style={{ width: '200px', height: '300px', margin: '10px 10px 10px 0' }}
+                        key={`img-${index + 1}`}
                         src={img}
                         alt="img"
                       />
                     );
                   })}
                 </div>
-              </>
+              </Fragment>
             );
           })}
-        </div>
+        </TempContainer>
       </LeftWrapper>
       <RightWrapper>
         {/* TODO api로 history 정보 받아와서 뿌려주기 */}
@@ -76,7 +79,9 @@ const Wrapper = styled.div`
 const LeftWrapper = styled.div`
   flex-grow: 1;
   margin-top: 100px;
-  overflow: scroll;
+
+  display: flex;
+  flex-direction: column;
 `;
 
 const Head = styled.div`
@@ -84,16 +89,50 @@ const Head = styled.div`
   justify-content: space-around;
 `;
 
+const TempContainer = styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+    width: 7px; /*스크롤바의 너비*/
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: gray; /*스크롤바의 색상*/
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent; /*스크롤바 트랙 색상*/
+  }
+`;
+
 const RightWrapper = styled.div`
   width: 250px;
   border-left: 2px solid lightgray;
-  margin-top: 100px;
-  margin-bottom: 10px;
+  margin: 100px 0 10px 0;
   padding-bottom: 40px;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: hidden;
+
+  ::-webkit-scrollbar {
+    width: 7px; /*스크롤바의 너비*/
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: gray; /*스크롤바의 색상*/
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent; /*스크롤바 트랙 색상*/
+  }
 `;
 
 const History = styled.div`
