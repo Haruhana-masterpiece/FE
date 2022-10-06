@@ -4,7 +4,6 @@ import { VscInfo } from 'react-icons/vsc';
 import PreviewImg from '../../components/organism/PreviewImg';
 import ArtText from '../../components/organism/ArtText';
 import Artist from '../../components/organism/AdminArtist';
-import Spinner from '../../components/atoms/Spinner';
 
 interface Props {
   setImgData: Dispatch<SetStateAction<string>>;

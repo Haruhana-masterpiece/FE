@@ -5,7 +5,7 @@ import MenuBar from '../../components/organism/MenuBar';
 import AdminSideBarData from '../../components/constants/AdminSideBarData';
 
 function Admin() {
-  // TODO 유저정보 api 받아서 구현
+  // TODO : 유저정보 api 받아서 구현
   const userData = {
     img: {
       src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9mv9u2cfDIBp7Xjn0otKqsPtVMBoxyZtP6e2cxZ87hA&s',
