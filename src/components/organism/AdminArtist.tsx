@@ -1,6 +1,6 @@
 import React, { MouseEventHandler, useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import CheckBox from '../atoms/CheckBox';
 import Input from '../atoms/Input';
 import ModalBody from '../atoms/ModalBody';
@@ -37,6 +37,7 @@ function Artist() {
     console.log(datas);
   };
 
+  // TODO : event type 찾아서 설정
   const selectClickHandler = (event: any) => {
     setArtistName(event.target.name);
     setSelectArtistName(event.target.name);
@@ -55,10 +56,15 @@ function Artist() {
           placeholder="작가 이름을 입력해주세요"
           value={artistName}
           type="text"
+          disabled={boxChecked}
           onChange={(e) => setArtistName(e.target.value)}
         />
-        <ArtistSearchBtn onClick={() => setSearchModal(!searchModal)}>작가 검색</ArtistSearchBtn>
-        <ArtistAddBtn onClick={() => setAddModal(!addModal)}>작가 추가</ArtistAddBtn>
+        <ArtistSearchBtn disabled={boxChecked} onClick={() => setSearchModal(!searchModal)}>
+          작가 검색
+        </ArtistSearchBtn>
+        <ArtistAddBtn disabled={boxChecked} onClick={() => setAddModal(!addModal)}>
+          작가 추가
+        </ArtistAddBtn>
       </Body>
       {/* 작가 검색 Modal */}
       {searchModal && (
@@ -143,13 +149,29 @@ const Body = styled.div`
   margin-left: 35px;
 `;
 
-const ArtistSearchBtn = styled(SelectBtn)`
+const ArtistSearchBtn = styled(SelectBtn)<{ disabled: boolean }>`
+  ${({ disabled }) =>
+    disabled
+      ? css`
+          color: gray;
+        `
+      : css`
+          color: black;
+        `}
   width: 100px;
   height: 80%;
   margin-left: 10px;
 `;
 
-const ArtistAddBtn = styled(SelectBtn)`
+const ArtistAddBtn = styled(SelectBtn)<{ disabled: boolean }>`
+  ${({ disabled }) =>
+    disabled
+      ? css`
+          color: gray;
+        `
+      : css`
+          color: black;
+        `}
   width: 100px;
   height: 80%;
   margin-left: 10px;

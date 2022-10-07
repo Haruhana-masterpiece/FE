@@ -1,8 +1,33 @@
-import React from 'react';
-import { HiOutlineHeart } from 'react-icons/hi';
+import React, { useState } from 'react';
+import { HiHeart, HiOutlineHeart } from 'react-icons/hi';
 
-function HeartBtn() {
-  return <HiOutlineHeart style={{ color: '#fff', position: 'relative', top: '90%', left: '40%' }} />;
+interface btnProps {
+  size: string;
+  color: string;
+}
+
+function HeartBtn({ size, color }: btnProps) {
+  const [bookmark, setBookmark] = useState(true);
+  return bookmark ? (
+    <HiOutlineHeart
+      size={size}
+      color={color}
+      style={{
+        position: 'relative',
+        cursor: 'pointer',
+      }}
+      onClick={() => setBookmark(false)}
+    />
+  ) : (
+    <HiHeart
+      size={size}
+      style={{
+        color: 'red',
+        cursor: 'pointer',
+      }}
+      onClick={() => setBookmark(true)}
+    />
+  );
 }
 
 export default HeartBtn;

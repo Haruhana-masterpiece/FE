@@ -12,6 +12,8 @@ import AdminHome from './pages/admin/AdminHome';
 import UserManagement from './pages/admin/UserManagement';
 import ArtAdd from './pages/admin/ArtAdd';
 import ArtEdit from './pages/admin/ArtEdit';
+import Details from './pages/details/Details';
+import MyCollection from './pages/myCollection';
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
           {/* 메인 페이지 */}
           <Route element={<Layout />}>
             <Route path="/" element={<Main />} />
+            <Route path="/details/:index" element={<Details />} />
             {/* <Route path="/collection" element={<MyCollection />} /> */}
+            <Route path="/collection" element={<MyCollection />} />
           </Route>
           {/* 마이 페이지 */}
           <Route path="/mypage" element={<Mypage />}>
@@ -56,7 +60,7 @@ const GlobalStyle = createGlobalStyle`
   font-family: 'Noto Sans KR', sans-serif;
 }
 body {
-  background-color: #fafafa;
+  background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
 }
 *, :after, :before {

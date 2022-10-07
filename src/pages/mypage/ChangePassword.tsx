@@ -77,13 +77,13 @@ const Title = styled.h2`
   border-bottom: 2px solid lightgray;
   font-size: 32px;
   font-weight: 400;
-  margin-bottom: 100px;
 `;
 
 const Form = styled.form<{ onSubmit: FormEventHandler<HTMLFormElement> }>`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 70px 0;
 
   > div {
     margin: 10px;

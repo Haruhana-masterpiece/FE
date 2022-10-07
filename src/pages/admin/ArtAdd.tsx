@@ -38,7 +38,6 @@ const MainTitle = styled.h2`
   border-bottom: 2px solid lightgray;
   font-size: 32px;
   font-weight: 500;
-  magin-bottom: 86px;
 `;
 
 const TBody = styled.div`

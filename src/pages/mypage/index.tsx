@@ -52,4 +52,5 @@ const Container = styled.div`
 const Body = styled.div`
   width: 1030px;
   height: 100vh;
+  overflow-y: scroll;
 `;
