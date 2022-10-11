@@ -23,7 +23,7 @@ function Carousel() {
         }}
       >
         {urlArray.map((url) => {
-          return <CarouselContent url={url} />;
+          return <CarouselContent key={Math.random()} url={url} />;
         })}
       </div>
       <IndicatorContainer>
