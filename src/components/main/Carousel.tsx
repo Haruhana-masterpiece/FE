@@ -30,6 +30,7 @@ function Carousel() {
         {urlArray.map((data, i) => {
           return (
             <Indicator
+              key={Math.random()}
               name={`${i}`}
               onClick={(e: React.MouseEvent) => {
                 const target = e.target as HTMLButtonElement;

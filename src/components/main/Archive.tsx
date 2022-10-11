@@ -6,7 +6,7 @@ import ArtContainer from '../organism/ArtContainer';
 function Archive() {
   const [poke, setPoke] = useState<string[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [target, setTarget] = useState(null);
+  const [target, setTarget] = useState<HTMLElement | null | undefined>(null);
 
   function onIntersect([entry]: IntersectionObserverEntry[], observer: IntersectionObserver) {
     if (entry.isIntersecting && !isLoaded) {
