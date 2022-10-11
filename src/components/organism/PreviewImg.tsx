@@ -13,21 +13,25 @@ interface Props {
 function PreviewImg({ setImgData }: Props) {
   const [previewImg, setPreviewImg] = useState<string>('');
   const [selectState, setSelectState] = useState<boolean>(false);
+
   // 파일선택 버튼이랑 selectBtn 연결
   const selectFile = useRef<HTMLInputElement>(null);
 
-  const loadImg = (e: any) => {
-    const ArtImgFile = e.target.files;
-    setPreviewImg(URL.createObjectURL(ArtImgFile[0]));
-    setImgData(URL.createObjectURL(ArtImgFile[0]));
-    setSelectState(true);
+  // TODO : any type 변경 하기
+  const loadImg = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.currentTarget.files !== null) {
+      const ArtImgFile = e.currentTarget.files[0];
+      setPreviewImg(URL.createObjectURL(ArtImgFile));
+      setImgData(URL.createObjectURL(ArtImgFile));
+      setSelectState(true);
+    }
   };
 
   const handleClick = (e: any) => {
-    e.target.value = null;
+    e.currentTarget.value = null;
   };
 
-  const resetImg = (e: any) => {
+  const resetImg = () => {
     setPreviewImg('');
     setImgData('');
     setSelectState(false);
@@ -87,7 +91,7 @@ const CustomSelectBtn = styled(SelectBtn)<{ selectState: boolean }>`
         `}
   color: #868e96;
   width: 100%;
-  height: 35px;z
+  height: 35px;
   border: 0.5px solid #e9ecef;
 `;
 

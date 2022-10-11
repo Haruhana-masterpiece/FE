@@ -7,6 +7,7 @@ import ModalBody from '../atoms/ModalBody';
 import ModalWrapper from '../atoms/ModalWrapper';
 import SelectBtn from '../atoms/SelectBtn';
 import ArtistMockData from '../constants/ArtistMockData';
+import ArtistAdd from './ArtistAdd';
 import ArtistList from './ArtistList';
 
 interface IProps {
@@ -22,11 +23,17 @@ const MockDatas: IProps[] = ArtistMockData;
 function Artist() {
   const [boxChecked, setBoxChecked] = useState<boolean>(false);
   const [artistName, setArtistName] = useState<string>('');
+
+  // 작가 검색 useState
   const [searchModal, setSearchModal] = useState<boolean>(false);
   const [addModal, setAddModal] = useState<boolean>(false);
-
   const [selectArtistName, setSelectArtistName] = useState<string>('');
 
+  // 작가 추가 useState
+  const [previewImg, setPreviewImg] = useState<string>('');
+  const [selectState, setSelectState] = useState<boolean>(false);
+
+  // MockData
   const [datas, setDatas] = useState<IProps[]>(MockDatas);
 
   // TODO : 원하는 결과 값 없을시 값이 없다고 출력
@@ -100,7 +107,13 @@ function Artist() {
               </TableHead>
               <TableBody>
                 {datas.map((data) => (
-                  <ArtistList id={data.id} name={data.Name} yofb={data.YofB} onClick={selectClickHandler} />
+                  <ArtistList
+                    key={data.id}
+                    id={data.id}
+                    name={data.Name}
+                    yofb={data.YofB}
+                    onClick={selectClickHandler}
+                  />
                 ))}
               </TableBody>
             </TableSheet>
@@ -110,7 +123,13 @@ function Artist() {
       {/* 작가 추가 Modal */}
       {addModal && (
         <ModalWrapper onClick={() => setAddModal(!addModal)}>
-          <ModalBody>c</ModalBody>
+          <CModalBody onClick={(e) => e.stopPropagation()}>
+            <ModalTopBar>
+              <ModalTitle>작가 추가</ModalTitle>
+              <ModalCloseBtn onClick={() => setAddModal(!addModal)} />
+            </ModalTopBar>
+            <ArtistAdd />
+          </CModalBody>
         </ModalWrapper>
       )}
     </Container>
@@ -124,8 +143,9 @@ const Container = styled.div`
   flex-direction: column;
   align-items: left;
   width: 100%;
-  height: 300px;
+  height: 130px;
   margin-left: 50px;
+  border-bottom: 1px solid lightgray;
 `;
 
 const TBody = styled.div`

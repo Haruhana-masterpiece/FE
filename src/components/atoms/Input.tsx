@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from 'react';
+import React, { ChangeEventHandler, KeyboardEventHandler } from 'react';
 import styled, { css } from 'styled-components';
 
 interface InputProps {
@@ -10,9 +10,10 @@ interface InputProps {
   value?: string;
   disabled?: boolean;
   onChange?: ChangeEventHandler<HTMLInputElement>;
+  onKeyPress?: KeyboardEventHandler<HTMLInputElement>;
 }
 
-function Input({ id, label, placeholder, size, type, value, disabled, onChange }: InputProps) {
+function Input({ id, label, placeholder, size, type, value, disabled, onChange, onKeyPress }: InputProps) {
   return (
     <Container>
       {/* label은 선택사항 */}
@@ -25,6 +26,7 @@ function Input({ id, label, placeholder, size, type, value, disabled, onChange }
         value={value}
         disabled={disabled}
         onChange={onChange}
+        onKeyPress={onKeyPress}
       />
     </Container>
   );
@@ -37,6 +39,7 @@ const defaultProps = {
   value: '',
   disabled: false,
   onChange: () => null,
+  onKeyPress: () => null,
 };
 
 Input.defaultProps = defaultProps;

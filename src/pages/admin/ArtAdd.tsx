@@ -4,6 +4,8 @@ import { VscInfo } from 'react-icons/vsc';
 import PreviewImg from '../../components/organism/PreviewImg';
 import ArtText from '../../components/organism/ArtText';
 import Artist from '../../components/organism/AdminArtist';
+import ArtTag from '../../components/organism/ArtTag';
+import SelectBtn from '../../components/atoms/SelectBtn';
 
 interface Props {
   setImgData: Dispatch<SetStateAction<string>>;
@@ -21,12 +23,41 @@ function ArtAdd() {
         <PreviewImg setImgData={setImgData} />
         <ArtText setTextData={setTextData} />
       </TBody>
-      <Artist />
+      <Body>
+        <Artist />
+        <ArtTag />
+      </Body>
+      <Buttons>
+        <ArtAddBtn>작품추가</ArtAddBtn>
+        <ResetBtn>초기화</ResetBtn>
+      </Buttons>
     </Container>
   );
 }
 
 export default ArtAdd;
+const ArtAddBtn = styled(SelectBtn)`
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  font-size: 20px;
+`;
+
+const ResetBtn = styled(SelectBtn)`
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  margin-left: 10px;
+  font-size: 20px;
+`;
+
+const Body = styled.div``;
+
+const Buttons = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+`;
 
 const Container = styled.div`
   display: flex;

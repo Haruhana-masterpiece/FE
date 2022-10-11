@@ -15,7 +15,7 @@ function ArtistList({ id, name, yofb, onClick }: IProps) {
       <TalbeTd>{name}</TalbeTd>
       <TalbeTd>{yofb}</TalbeTd>
       <TalbeTd>
-        <CSelectBtn key={id} name={name} onClick={onClick}>
+        <CSelectBtn key={`Select-${id}`} name={name} onClick={onClick}>
           선택
         </CSelectBtn>
       </TalbeTd>
