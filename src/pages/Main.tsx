@@ -19,5 +19,4 @@ const MainStyle = styled.div`
   overflow: hidden;
   width: 1280px;
   height: auto;
-  margin: 0 auto;
 `;
