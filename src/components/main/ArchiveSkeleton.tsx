@@ -28,5 +28,14 @@ const ArtContainerSkeletonStyle = styled.div`
   width: 250px;
   height: 250px;
   border-radius: 5px;
-  background-color: #bbb;
+  cursor: progress;
+  background: linear-gradient(0.25turn, transparent, #fff, transparent), linear-gradient(#eee, #eee),
+    radial-gradient(38px circle at 19px 19px, #eee 50%, transparent 51%), linear-gradient(#eee, #eee);
+  background-repeat: no-repeat;
+  animation: loading 2s infinite;
+  @keyframes loading {
+    to {
+      background-position: 250px 0, 0 0, 0 250px, 50px 250px;
+    }
+  }
 `;
