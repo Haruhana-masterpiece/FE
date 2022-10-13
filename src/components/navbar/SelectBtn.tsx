@@ -7,7 +7,7 @@ interface IProps {
   active: boolean;
 }
 
-function SelectBtx({ value, onClick, active }: IProps) {
+function SelectBtn({ value, onClick, active }: IProps) {
   return (
     <SelectButton onClick={onClick} active={active}>
       {value}
@@ -15,7 +15,7 @@ function SelectBtx({ value, onClick, active }: IProps) {
   );
 }
 
-export default SelectBtx;
+export default SelectBtn;
 
 const SelectButton = styled.button<{ active: boolean }>`
   background-color: lightgray;
