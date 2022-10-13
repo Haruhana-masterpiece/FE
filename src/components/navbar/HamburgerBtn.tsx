@@ -19,7 +19,6 @@ export default HamburgerBtn;
 
 const HamburgerBtnStyle = styled.button<{ toggle: boolean }>`
   position: absolute;
-  z-index: 3;
   right: 0.5rem;
   top: 0.5rem;
   background-color: transparent;

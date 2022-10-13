@@ -2,10 +2,14 @@ import React from 'react';
 import { FiSettings } from 'react-icons/fi';
 import styled from 'styled-components';
 
-function SettingBtn() {
+interface IProps {
+  onClick: () => void;
+}
+
+function SettingBtn({ onClick }: IProps) {
   return (
-    <SettingBtnStyle>
-      <FiSettings />
+    <SettingBtnStyle onClick={onClick}>
+      <CustomBtn />
     </SettingBtnStyle>
   );
 }
@@ -17,8 +21,11 @@ const SettingBtnStyle = styled.button`
   color: white;
   font-size: 2rem;
   margin-right: 1rem;
+`;
+
+const CustomBtn = styled(FiSettings)`
   transition: 0.5s ease;
   :hover {
-    transform: rotate(30deg);
+    transform: rotate(90deg);
   }
 `;

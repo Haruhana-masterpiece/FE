@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import Logo from '../atoms/Logo';
 import HamburgerBtn from './HamburgerBtn';
 import Sidebar from './Sidebar';
 
 function Navbar() {
   const [close, setClose] = useState<boolean>(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    setClose(true);
+  }, [location]);
+
   return (
     <NavbarStyle>
+      <Logo />
       <Sidebar close={close} />
       <HamburgerBtn setClose={setClose} close={close} />
     </NavbarStyle>
@@ -19,4 +28,5 @@ const NavbarStyle = styled.div`
   position: fixed;
   top: 0;
   width: 1280px;
+  z-index: 999;
 `;
