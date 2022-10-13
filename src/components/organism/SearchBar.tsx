@@ -24,6 +24,7 @@ function SearchBar({ setValue, radio1, radio2, radio1Id, radio2Id }: IProps) {
       category: radio,
       result: search,
     });
+    setSearch('');
   };
 
   return (

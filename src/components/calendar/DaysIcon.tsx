@@ -57,8 +57,8 @@ const DayContainer = styled.div<{ dayColor: string }>`
 const HoverDataContainer = styled.div`
   position: absolute;
   top: 35px;
-  left: -5px;
-  width: 240px;
+  left: 5px;
+  width: 220px;
   text-align: center;
   background-color: lightgray;
   border: 1px solid gray;
