@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import SettingBtn from './SettingBtn';
-import SelectBtn from '../atoms/SelectBtn';
+import SelectBtn from './SelectBtn';
 
 interface IProps {
   open: boolean;
