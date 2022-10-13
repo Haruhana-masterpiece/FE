@@ -6,9 +6,15 @@ import SelectYear from './SelectYear';
 import SelectMonth from './SelectMonth';
 import DaysList from './DaysList';
 
+type likeType = {
+  art: string;
+  author: string;
+  img: string;
+};
+
 type likeDataType = {
   date: string;
-  like: string[];
+  like: likeType[];
 };
 
 interface IProps {
