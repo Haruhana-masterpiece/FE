@@ -36,7 +36,7 @@ function Sidebar({ close }: { close: boolean }) {
           <MenuContainer>
             <ul>
               <li>
-                <Link to="/details">Today&#39;s Art</Link>
+                <Link to={`/details/00${Math.ceil(9 * Math.random())}`}>Today&#39;s Art</Link>
               </li>
               <li>
                 <Link to="/collection">My Collection</Link>
