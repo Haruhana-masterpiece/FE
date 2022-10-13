@@ -60,7 +60,7 @@ function Archive() {
           })
         )}
       </div>
-      <div ref={setTarget} className="target" />
+      {/* <div ref={setTarget} className="target" /> */}
     </ArchiveStyle>
   );
 }
