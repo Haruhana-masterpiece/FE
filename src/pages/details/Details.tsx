@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import HeartBtn from '../../components/atoms/HeartBtn';
 import ShareBtn from '../../components/atoms/ShareBtn';
 import UserImage from '../../components/atoms/UserImage';
+import SoundBtn from '../../components/details/SoundBtn';
+import TagBtn from '../../components/details/TagBtn';
+import ArtModal from './ArtModal';
 
 const contents = `Thomas Heeremans was a Dutch painter and art dealer.
 \n He is known for his landscapes of winter scenes, cityscapes, harbor scenes, beach views, river views
@@ -12,7 +15,7 @@ and village scenes.
 and died in Haarlem.
 \n
 \n He was in the past sometimes erroneously referred to as Frederik Hendrik Mans, likely because he
-signed his name &#34;THMANS&#34; with the &#34;THM&#34; together, leading dealers to assume his name was
+signed his name 'THMANS' with the 'THM' together, leading dealers to assume his name was
 F.H. Mans.
 \n
 Heeremans was baptized in the Reformed Church of Haarlem on 29 May 1641. He became a member of the Haarlem
@@ -27,13 +30,14 @@ Scheveningen and the village, beach and ruins of Egmond. His pictures frequently
 dated work is from 1660 while last dated work is from 1695. No influence of his presumed master Caesar van
 Everdingen is visible in the work of Heeremans as he was purely a landscape artist and not a figure painter.
 His style was rather influenced by Klaes Molenaer particularly in his depiction of winter landscapes and
-river scenes. Heeremans&#34; works are distinguished from the rather melancholic scenes of Molenaer by the
+river scenes. Heeremans' works are distinguished from the rather melancholic scenes of Molenaer by the
 use of a brighter palette and the introduction of more lively movement in the scenes, which are populated by
 many villagers engaged in various activities such as skating, sledging, fishing and talking.
 \n `;
 
 function Details() {
   const [isReadMore, setIsReadMore] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // eslint-disable-next-line consistent-return
   const description = useMemo(() => {
@@ -52,13 +56,21 @@ function Details() {
 
   return (
     <DetailsPageStyle>
+      {isModalOpen && (
+        <ArtModal
+          url={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${params[2]}.png`}
+          setIsModalOpen={setIsModalOpen}
+        />
+      )}
       <ArtInfo>
         <ImgContainer>
-          <img
-            src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${params[2]}.png`}
-            alt={`${params[2]}`}
-            className="DetailsArtContainer"
-          />
+          <button type="button" onClick={() => setIsModalOpen(true)}>
+            <img
+              src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${params[2]}.png`}
+              alt={`${params[2]}`}
+              className="DetailsArtContainer"
+            />
+          </button>
           <div className="icons">
             <HeartBtn size="2em" color="black" />
             <ShareBtn size="2em" color="black" />
@@ -68,6 +80,7 @@ function Details() {
           <div className="detailsTitle">
             Ansicht des Strandes bei Scheveling (1678)
             <br /> Thomas Heeremans (Dutch, 1641–1694)
+            <SoundBtn />
           </div>
           <div className="description">
             {description}
@@ -81,7 +94,9 @@ function Details() {
               {contents.length > 200 && (isReadMore ? 'Close' : 'Read More')}
             </button>
           </div>
-          <div className="tagContainer" />
+          <div className="tagContainer">
+            <TagBtn value="pokemon" />
+          </div>
         </ArtInfoContainer>
       </ArtInfo>
       <ArtistInfo>
@@ -188,9 +203,10 @@ const ArtInfoContainer = styled.div`
   .description {
     width: 420px;
     height: 240px;
+    line-height: 1.5rem;
     // border: 1px solid #000;
     padding: 1rem;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     object-fit: contain;
     block-size: auto;
   }
@@ -198,6 +214,7 @@ const ArtInfoContainer = styled.div`
   .tagContainer {
     width: 420px;
     height: 100px;
+    padding: 1rem;
     // border: 1px solid #000;
   }
 
@@ -217,7 +234,7 @@ const ArtistInfo = styled.div`
   display: flex;
 
   img {
-    margin: 0.5rem;
+    margin: 0 0.5rem;
     background-color: #ddd;
   }
 

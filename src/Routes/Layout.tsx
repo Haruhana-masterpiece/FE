@@ -1,13 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import Logo from '../components/atoms/Logo';
 import Navbar from '../components/navbar/Navbar';
 
 function Layout() {
   return (
     <Container>
-      <Logo />
       <Navbar />
       <Outlet />
     </Container>
