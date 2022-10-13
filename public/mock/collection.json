@@ -1,74 +1,62 @@
 [
   {
-    "date": "2022-09-02",
+    "date": "2022-10-02",
     "like": [
-      "https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg",
-      "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201405/27/htm_2014052795959a010a011.jpg"
+      {
+        "art": "img",
+        "author": "kim",
+        "img": "https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"
+      },
+      {
+        "art": "img2",
+        "author": "park",
+        "img": "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201405/27/htm_2014052795959a010a011.jpg"
+      }
     ]
   },
   {
-    "date": "2022-09-04",
-    "like": ["https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"]
-  },
-  {
-    "date": "2022-09-06",
+    "date": "2022-10-04",
     "like": [
-      "https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg",
-      "https://mblogthumb-phinf.pstatic.net/MjAxNjExMDlfMjUz/MDAxNDc4NjI1NTg0MDIy.Nug2pYjR3o3xl7PBMsYTnZ0gsID5nhN9WPzQl5M-Juog.cNFh3ph65TrV53r40NH2XDPEiXRW3rjlp05JY0B1aFkg.JPEG.guri4you/%EC%84%B8%EA%B3%84_%EB%AA%85%ED%99%941.jpg?type=w800",
-      "https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg",
-      "https://mblogthumb-phinf.pstatic.net/MjAxNjExMDlfMjUz/MDAxNDc4NjI1NTg0MDIy.Nug2pYjR3o3xl7PBMsYTnZ0gsID5nhN9WPzQl5M-Juog.cNFh3ph65TrV53r40NH2XDPEiXRW3rjlp05JY0B1aFkg.JPEG.guri4you/%EC%84%B8%EA%B3%84_%EB%AA%85%ED%99%941.jpg?type=w800",
-      "https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg",
-      "https://mblogthumb-phinf.pstatic.net/MjAxNjExMDlfMjUz/MDAxNDc4NjI1NTg0MDIy.Nug2pYjR3o3xl7PBMsYTnZ0gsID5nhN9WPzQl5M-Juog.cNFh3ph65TrV53r40NH2XDPEiXRW3rjlp05JY0B1aFkg.JPEG.guri4you/%EC%84%B8%EA%B3%84_%EB%AA%85%ED%99%941.jpg?type=w800"
+      {
+        "art": "img3",
+        "author": "lee",
+        "img": "https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"
+      }
     ]
   },
   {
-    "date": "2022-09-08",
-    "like": ["https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"]
-  },
-  {
-    "date": "2022-09-10",
-    "like": ["https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"]
-  },
-  {
-    "date": "2022-09-20",
-    "like": ["https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"]
-  },
-  {
-    "date": "2022-09-30",
-    "like": ["https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"]
-  },
-  {
-    "date": "2022-10-01",
+    "date": "2022-10-06",
     "like": [
-      "https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg",
-      "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201405/27/htm_2014052795959a010a011.jpg"
-    ]
-  },
-  {
-    "date": "2022-10-03",
-    "like": ["https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"]
-  },
-  {
-    "date": "2022-10-05",
-    "like": ["https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"]
-  },
-  {
-    "date": "2022-10-07",
-    "like": ["https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"]
-  },
-  {
-    "date": "2022-10-11",
-    "like": ["https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"]
-  },
-  {
-    "date": "2022-10-21",
-    "like": ["https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"]
-  },
-  {
-    "date": "2022-10-29",
-    "like": [
-      "https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg",
-      "https://mblogthumb-phinf.pstatic.net/MjAxNjExMDlfMjUz/MDAxNDc4NjI1NTg0MDIy.Nug2pYjR3o3xl7PBMsYTnZ0gsID5nhN9WPzQl5M-Juog.cNFh3ph65TrV53r40NH2XDPEiXRW3rjlp05JY0B1aFkg.JPEG.guri4you/%EC%84%B8%EA%B3%84_%EB%AA%85%ED%99%941.jpg?type=w800"
+      {
+        "art": "img4",
+        "author": "aaa",
+        "img": "https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"
+      },
+      {
+        "art": "img5",
+        "author": "bbb",
+        "img": "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201405/27/htm_2014052795959a010a011.jpg"
+      },
+      {
+        "art": "img6",
+        "author": "ccc",
+        "img": "https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"
+      },
+      {
+        "art": "img7",
+        "author": "ddd",
+        "img": "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201405/27/htm_2014052795959a010a011.jpg"
+      },
+      {
+        "art": "img8",
+        "author": "eee",
+        "img": "https://blog.kakaocdn.net/dn/q4v7c/btq12vFpo0s/Gph0LGqtgg24sN4pSvKnt0/img.jpg"
+      },
+      {
+        "art": "img9",
+        "author": "fff",
+        "img": "https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/201405/27/htm_2014052795959a010a011.jpg"
+      }
     ]
   }
 ]

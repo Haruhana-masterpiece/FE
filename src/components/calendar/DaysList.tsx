@@ -41,9 +41,15 @@ function createDaysList(startDate: number, endDate: number, dayOfWeek: number, l
   return days;
 }
 
+type likeType = {
+  art: string;
+  author: string;
+  img: string;
+};
+
 type likeDataType = {
   date: string;
-  like: string[];
+  like: likeType[];
 };
 
 interface Iprops {
