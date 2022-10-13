@@ -1,11 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import SettingBtn from './SettingBtn';
-<<<<<<< Updated upstream
 import SelectBtn from './SelectBtn';
-=======
-import SelectBtn from '../atoms/SelectBtn';
->>>>>>> Stashed changes
 
 interface IProps {
   open: boolean;
