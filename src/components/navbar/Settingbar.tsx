@@ -46,8 +46,9 @@ function Settingbar({ open, setOpen }: IProps) {
             </div>
           </SettingWrapper>
         </SettingsContainer>
-
-        <SettingBtn onClick={() => setOpen((curr) => !curr)} />
+        <SettingBtnWrapper>
+          <SettingBtn onClick={() => setOpen((curr) => !curr)} />
+        </SettingBtnWrapper>
       </SettingbarStyle>
     </SettingbarContainer>
   );
@@ -86,14 +87,14 @@ const Head = styled.h2`
 
 const SettingsContainer = styled.div`
   line-height: 4rem;
-  margin-top: 5rem;
+  margin-top: 8rem;
   color: white;
-  font-size: 1.5rem;
-  height: 86%;
+  font-size: 1.3rem;
+  height: 75%;
 `;
 
 const SettingWrapper = styled.div`
-  margin: 8rem 0;
+  margin: 5rem 0;
 
   > h2 {
     margin-left: 2rem;
@@ -104,4 +105,10 @@ const SettingWrapper = styled.div`
     width: 20rem;
     align-items: center;
   }
+`;
+
+const SettingBtnWrapper = styled.div`
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
 `;

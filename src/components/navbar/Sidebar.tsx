@@ -46,7 +46,9 @@ function Sidebar({ close }: { close: boolean }) {
               </li>
             </ul>
           </MenuContainer>
-          <SettingBtn onClick={() => setSettingOpen((curr) => !curr)} />
+          <SettingBtnWrapper>
+            <SettingBtn onClick={() => setSettingOpen((curr) => !curr)} />
+          </SettingBtnWrapper>
         </SidebarStyle>
       </SidebarContainer>
       <Settingbar open={!close && settingOpen} setOpen={setSettingOpen} />
@@ -100,4 +102,10 @@ const MenuContainer = styled.div`
   color: white;
   font-size: 1.5rem;
   height: 66%;
+`;
+
+const SettingBtnWrapper = styled.div`
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
 `;
