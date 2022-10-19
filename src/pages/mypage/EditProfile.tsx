@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, FormEventHandler, ChangeEvent } from 'react';
+import React, { FormEvent, useState, FormEventHandler, ChangeEvent, useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import styled from 'styled-components';
 import { VscSettingsGear } from 'react-icons/vsc';
@@ -21,9 +21,14 @@ function validatePhone(phone: string): boolean {
 
 function EditProfile() {
   const userData = useOutletContext<userDataProps>();
-  const [phone, setPhone] = useState<string>(userData.phone);
-  const [previewImg, setPreviewImg] = useState<string>(userData.img);
+  const [phone, setPhone] = useState<string>('');
+  const [previewImg, setPreviewImg] = useState<string>('');
   const [profileImg, setProfileImg] = useState<FileList | null>(null);
+
+  useEffect(() => {
+    setPhone(userData.phone);
+    setPreviewImg(userData.img);
+  }, [userData]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
