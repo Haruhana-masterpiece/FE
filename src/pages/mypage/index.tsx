@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import MenuBar from '../../components/organism/MenuBar';
+import links from '../../components/constants/MypageData';
 
 function Mypage() {
   // TODO 유저정보 api를 통해 받아온 후 전달
@@ -14,21 +15,6 @@ function Mypage() {
     email: 'asd@asd.com',
     phone: '01023232121',
   };
-
-  const links = [
-    {
-      link: 'editProfile',
-      text: '프로필 수정',
-    },
-    {
-      link: 'changePssword',
-      text: '비밀번호 변경',
-    },
-    {
-      link: 'deleteAccount',
-      text: '회원 탈퇴',
-    },
-  ];
 
   return (
     <Container>
