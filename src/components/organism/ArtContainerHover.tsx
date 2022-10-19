@@ -4,12 +4,17 @@ import styled from 'styled-components';
 import HeartBtn from '../atoms/HeartBtn';
 import ShareBtn from '../atoms/ShareBtn';
 
-function ArtContainerHover({ data }: { data: string }) {
+interface ArtContainerHoverProps {
+  data: string;
+  type: string | undefined;
+}
+
+function ArtContainerHover({ data, type }: ArtContainerHoverProps) {
   return (
     <ArtContainerHoverStyle>
-      <Link to={`details/${data}`} className="linkToDetails" />
+      <Link to={`/details/${data}`} className="linkToDetails" />
       <div className="icons">
-        <HeartBtn size="1.5em" color="white" />
+        {type !== 'collection' && <HeartBtn size="1.5em" color="white" />}
         <ShareBtn size="1.5em" color="white" />
       </div>
     </ArtContainerHoverStyle>

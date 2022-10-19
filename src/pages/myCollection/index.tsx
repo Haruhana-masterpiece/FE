@@ -1,7 +1,10 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { BiImages, BiListUl } from 'react-icons/bi';
+import { GoX } from 'react-icons/go';
 import Calendar from '../../components/calendar/Calendar';
 import SearchBar from '../../components/organism/SearchBar';
+import ArtContainer from '../../components/organism/ArtContainer';
 
 type SearchValue = {
   category: string;
@@ -65,54 +68,60 @@ function MyCollection() {
           <h1>Collection</h1>
           <SearchBar setValue={setSearchValue} radio1="작가명" radio1Id="author" radio2="작품명" radio2Id="art" />
         </Head>
-        {/*  TODO 아카이브 코드 완성되면 공유받아서 작업 마무리하기 */}
-        {/* 임시 코드 */}
-        <TempContainer>
-          <button type="button" onClick={() => setViewType('art')}>
-            art
-          </button>
-          <button type="button" onClick={() => setViewType('list')}>
-            list
-          </button>
-          {searchList.length === 0 && <TempEmptyList>검색 결과와 일치하는 항목이 없습니다.</TempEmptyList>}
-          {searchList.map((p, index) => {
+
+        <MasterpieceContainer>
+          <ViewTypeWrapper>
+            <ViewBtn onClick={() => setViewType('art')}>
+              <BiImages />
+            </ViewBtn>
+            <ViewBtn onClick={() => setViewType('list')}>
+              <BiListUl />
+            </ViewBtn>
+          </ViewTypeWrapper>
+          {searchList.length === 0 && <EmptyList>검색 결과와 일치하는 항목이 없습니다.</EmptyList>}
+
+          {searchList.map((collectionArt, index) => {
             return (
               <Fragment key={`masterpiece-${index + 1}`}>
-                {/* TODO 날짜 호버 시 해당 날짜에 담은 컬렉션 전체 삭제 버튼 생성 */}
-                <h2>{p.date}</h2>
+                <h2>
+                  {collectionArt.date}
+                  {/* TODO 호버시 생성  */}
+                  {/* TODO 컬렉션 삭제는 api요청하는 쪽으로 해야함 */}
+                  <button type="button" onClick={() => console.log('삭제하기')}>
+                    <GoX />
+                  </button>
+                </h2>
+
                 {viewType === 'art' ? (
-                  <div style={{ display: 'flex', width: '650px', flexWrap: 'wrap' }}>
+                  <ArtWrapper>
                     {/* eslint-disable-next-line */}
-                    {p.like.map(({ art, img }, index) => {
-                      return (
-                        <img
-                          style={{ width: '200px', height: '300px', margin: '10px 10px 10px 0' }}
-                          key={`img-${index + 1}`}
-                          src={img}
-                          alt={art}
-                        />
-                      );
+                    {collectionArt.like.map(({ art, img }, index) => {
+                      return <ArtContainer url={img} data={art} type="collection" key={`${art}-${index + 1}`} />;
                     })}
-                  </div>
+                  </ArtWrapper>
                 ) : (
-                  // TODO 리스트 디자인 구상
-                  <>
+                  <ListWrapper>
+                    <Category>
+                      <li>작가명</li>
+                      <li>작품명</li>
+                    </Category>
                     {/* eslint-disable-next-line */}
-                    {p.like.map(({ art, author }, index) => {
+                    {collectionArt.like.map(({ art, author }, index) => {
                       return (
-                        <div
-                          style={{ margin: '10px 10px 10px 0' }}
-                          key={`img-${index + 1}`}
-                        >{`${author} : ${art}`}</div>
+                        <ArtList key={`img-${index + 1}`}>
+                          <li>{author}</li>
+                          <li>{art}</li>
+                        </ArtList>
                       );
                     })}
-                  </>
+                  </ListWrapper>
                 )}
               </Fragment>
             );
           })}
-        </TempContainer>
+        </MasterpieceContainer>
       </LeftWrapper>
+
       <RightWrapper>
         {/* TODO api로 history 정보 받아와서 뿌려주기 */}
         <History>
@@ -137,9 +146,8 @@ const Wrapper = styled.div`
 `;
 
 const LeftWrapper = styled.div`
-  flex-grow: 1;
+  min-width: 1030px;
   margin-top: 100px;
-
   display: flex;
   flex-direction: column;
 `;
@@ -149,29 +157,35 @@ const Head = styled.div`
   justify-content: space-around;
 `;
 
-const TempContainer = styled.div`
+const MasterpieceContainer = styled.div`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   margin: 20px 0;
   overflow-y: scroll;
   overflow-x: hidden;
+  position: relative;
+`;
 
-  ::-webkit-scrollbar {
-    width: 7px; /*스크롤바의 너비*/
-  }
+const ViewTypeWrapper = styled.div`
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 10px;
+`;
 
-  ::-webkit-scrollbar-thumb {
-    background-color: gray; /*스크롤바의 색상*/
-    border-radius: 5px;
-  }
+const ViewBtn = styled.button`
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
 
-  ::-webkit-scrollbar-track {
-    background-color: transparent; /*스크롤바 트랙 색상*/
+  > svg {
+    width: 100%;
+    height: 100%;
   }
 `;
 
-const TempEmptyList = styled.div`
+const EmptyList = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,28 +195,56 @@ const TempEmptyList = styled.div`
   font-weight: bold;
 `;
 
+const ArtWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const ListWrapper = styled.div`
+  margin: 20px 0;
+`;
+
+const Category = styled.ul`
+  display: flex;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 10px;
+
+  > li:first-child {
+    width: 200px;
+  }
+
+  > li {
+    border-left: 5px solid lightgray;
+    border-radius: 2px;
+    padding-left: 15px;
+  }
+`;
+
+const ArtList = styled.ul`
+  display: flex;
+  margin-bottom: 10px;
+
+  > li:first-child {
+    width: 200px;
+  }
+
+  > li {
+    padding-left: 20px;
+    overflow-wrap: break-word;
+  }
+`;
+
 const RightWrapper = styled.div`
-  width: 250px;
+  min-width: 250px;
   border-left: 2px solid lightgray;
-  margin: 100px 0 10px 0;
+  margin: 100px 0 0;
   padding-bottom: 40px;
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
   overflow-x: hidden;
-
-  ::-webkit-scrollbar {
-    width: 7px; /*스크롤바의 너비*/
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: gray; /*스크롤바의 색상*/
-    border-radius: 5px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: transparent; /*스크롤바 트랙 색상*/
-  }
 `;
 
 const History = styled.div`

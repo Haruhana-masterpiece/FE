@@ -5,16 +5,23 @@ import ArtContainerHover from './ArtContainerHover';
 interface ArtContainerProps {
   url: string;
   data: string;
+  type?: string;
 }
 
-function ArtContainer({ url, data }: ArtContainerProps) {
+function ArtContainer({ url, data, type }: ArtContainerProps) {
   const [hide, setHide] = useState<boolean>(true);
   return (
     <ArtContainerStyle url={url} onMouseOver={() => setHide(false)} onMouseLeave={() => setHide(true)}>
-      {!hide && <ArtContainerHover data={data} />}
+      {!hide && <ArtContainerHover data={data} type={type} />}
     </ArtContainerStyle>
   );
 }
+
+const defaultProps = {
+  type: '',
+};
+
+ArtContainer.defaultProps = defaultProps;
 
 export default ArtContainer;
 
