@@ -59,6 +59,21 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   font-family: 'Noto Sans KR', sans-serif;
+
+  // 스크롤바 커스텀 
+  ::-webkit-scrollbar {
+    width: 7px; /*스크롤바의 너비*/
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: lightgray; /*스크롤바의 색상*/
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent; /*스크롤바 트랙 색상*/
+  }
+  
 }
 body {
   background-color: white;
