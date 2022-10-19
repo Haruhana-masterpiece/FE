@@ -4,14 +4,9 @@ import styled from 'styled-components';
 import Input from '../../components/atoms/Input';
 import ValidateInput from '../../components/organism/ValidateInput';
 
-type ImgType = {
-  src: string;
-  alt: string;
-};
-
 interface userDataProps {
   email: string;
-  img: ImgType;
+  img: string;
   name: string;
   phone: string;
 }

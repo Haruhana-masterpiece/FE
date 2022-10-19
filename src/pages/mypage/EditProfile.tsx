@@ -6,14 +6,9 @@ import UserImage from '../../components/atoms/UserImage';
 import Input from '../../components/atoms/Input';
 import ValidateInput from '../../components/organism/ValidateInput';
 
-type ImgType = {
-  src: string;
-  alt: string;
-};
-
 interface userDataProps {
   email: string;
-  img: ImgType;
+  img: string;
   name: string;
   phone: string;
 }
@@ -27,7 +22,7 @@ function validatePhone(phone: string): boolean {
 function EditProfile() {
   const userData = useOutletContext<userDataProps>();
   const [phone, setPhone] = useState<string>(userData.phone);
-  const [previewImg, setPreviewImg] = useState<string>(userData.img.src);
+  const [previewImg, setPreviewImg] = useState<string>(userData.img);
   const [profileImg, setProfileImg] = useState<FileList | null>(null);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -49,7 +44,7 @@ function EditProfile() {
     <Container>
       <Title>프로필 수정</Title>
       <Form onSubmit={handleSubmit}>
-        <UserImage src={previewImg} alt={userData.img.alt} />
+        <UserImage src={previewImg} alt={userData.name} />
         <Label htmlFor="imgFile" style={{ cursor: 'pointer' }}>
           <CustomGear />
           <input style={{ display: 'none' }} type="file" id="imgFile" accept="image/*" onChange={loadImg} />
