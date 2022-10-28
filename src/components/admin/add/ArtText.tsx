@@ -1,8 +1,8 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import styled from 'styled-components';
 import { BsTrash } from 'react-icons/bs';
-import Description from '../atoms/Textarea';
-import ValidateCheckBox from '../atoms/ValidateCheck';
+import Description from '../../atoms/Textarea';
+import ValidateCheckBox from '../../atoms/ValidateCheck';
 
 interface Props {
   setTextData: Dispatch<SetStateAction<string>>;

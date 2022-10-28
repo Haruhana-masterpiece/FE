@@ -37,7 +37,7 @@ function App() {
             <Route path="deleteAccount" element={<DeleteAccount />} />
           </Route>
           {/* 관리자 페이지 */}
-          {/* 토큰 구현 시 PrivateRoute 구현 */}
+          {/* PrivateRoute 구현 */}
           <Route path="/admin" element={<Admin />}>
             <Route index element={<AdminHome />} />
             <Route path="adminHome" element={<AdminHome />} />

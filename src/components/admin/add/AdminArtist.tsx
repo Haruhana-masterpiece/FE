@@ -1,12 +1,12 @@
 import React, { MouseEventHandler, useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import styled, { css } from 'styled-components';
-import CheckBox from '../atoms/CheckBox';
-import Input from '../atoms/Input';
-import ModalBody from '../atoms/ModalBody';
-import ModalWrapper from '../atoms/ModalWrapper';
-import SelectBtn from '../atoms/SelectBtn';
-import ArtistMockData from '../constants/ArtistMockData';
+import CheckBox from '../../atoms/CheckBox';
+import Input from '../../atoms/Input';
+import ModalBody from '../../atoms/ModalBody';
+import ModalWrapper from '../../atoms/ModalWrapper';
+import SelectBtn from '../../atoms/SelectBtn';
+import ArtistMockData from '../../constants/ArtistMockData';
 import ArtistAdd from './ArtistAdd';
 import ArtistList from './ArtistList';
 

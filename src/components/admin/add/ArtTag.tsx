@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import Input from '../atoms/Input';
-import TagItem from '../atoms/TagItem';
+import Input from '../../atoms/Input';
+import TagItem from '../../atoms/TagItem';
 
 function ArtTag() {
   const [tagItem, setTagItem] = useState<string>('');

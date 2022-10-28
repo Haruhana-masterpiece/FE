@@ -1,10 +1,9 @@
 import React, { useState, Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
-import { VscInfo } from 'react-icons/vsc';
-import PreviewImg from '../../components/organism/PreviewImg';
-import ArtText from '../../components/organism/ArtText';
-import Artist from '../../components/organism/AdminArtist';
-import ArtTag from '../../components/organism/ArtTag';
+import PreviewImg from '../../components/admin/add/PreviewImg';
+import ArtText from '../../components/admin/add/ArtText';
+import Artist from '../../components/admin/add/AdminArtist';
+import ArtTag from '../../components/admin/add/ArtTag';
 import SelectBtn from '../../components/atoms/SelectBtn';
 
 interface Props {

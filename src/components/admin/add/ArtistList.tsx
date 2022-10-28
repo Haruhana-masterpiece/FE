@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import SelectBtn from '../atoms/SelectBtn';
+import SelectBtn from '../../atoms/SelectBtn';
 
 interface IProps {
   id: string;

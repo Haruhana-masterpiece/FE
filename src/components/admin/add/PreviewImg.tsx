@@ -1,9 +1,9 @@
 import React, { useState, useRef, Dispatch, SetStateAction } from 'react';
 import styled, { css } from 'styled-components';
 import { GrImage } from 'react-icons/gr';
-import Spinner from '../atoms/Spinner';
+import Spinner from '../../atoms/Spinner';
 // atoms에 버튼 생성
-import SelectBtn from '../atoms/SelectBtn';
+import SelectBtn from '../../atoms/SelectBtn';
 
 interface Props {
   setImgData: Dispatch<SetStateAction<string>>;

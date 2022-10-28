@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { GrImage } from 'react-icons/gr';
 import styled, { css } from 'styled-components';
-import Input from '../atoms/Input';
-import SelectBtn from '../atoms/SelectBtn';
-import Description from '../atoms/Textarea';
+import Input from '../../atoms/Input';
+import SelectBtn from '../../atoms/SelectBtn';
+import Description from '../../atoms/Textarea';
 
 function ArtistAdd() {
   const [previewImg, setPreviewImg] = useState<string>('');
