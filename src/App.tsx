@@ -15,6 +15,9 @@ import ArtEdit from './pages/admin/ArtEdit';
 import Details from './pages/details/Details';
 import MyCollection from './pages/myCollection';
 import Tags from './pages/details/Tags';
+import Login from './pages/login';
+import FindEmail from './pages/login/FindEmail';
+import Register from './pages/register';
 
 function App() {
   return (
@@ -36,6 +39,10 @@ function App() {
             <Route path="changePssword" element={<ChangePassword />} />
             <Route path="deleteAccount" element={<DeleteAccount />} />
           </Route>
+          {/* 로그인 및 회원가입 페이지 */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/findEmail" element={<FindEmail />} />
+          <Route path="/register" element={<Register />} />
           {/* 관리자 페이지 */}
           {/* 토큰 구현 시 PrivateRoute 구현 */}
           <Route path="/admin" element={<Admin />}>

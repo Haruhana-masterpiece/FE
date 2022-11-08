@@ -63,13 +63,22 @@ const InputContainer = styled.input<{ sz: string | undefined }>`
       width: 400px;
       height: 45px;
     `}
+
   ${({ sz }) =>
     sz === 'medium' &&
     css`
       width: 300px;
       height: 45px;
     `}
+    
+  ${({ sz }) =>
+    sz === 'small' &&
+    css`
+      width: 200px;
+      height: 45px;
+    `}
 
+    
   border: lightgray 1px solid;
   border-radius: 5px;
   padding-left: 15px;
